@@ -117,8 +117,3 @@ const ButtonSuggestion = styled.label`
     font-family: arial;
   }
 `;
-
-const Suggestion = styled.div`
-  border: 1px solid silver;
-  width: 150px;
-`;
