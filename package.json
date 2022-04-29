@@ -1,7 +1,6 @@
 {
   "name": "discwordle",
   "version": "0.1.0",
-  "homepage": "https://TonyDMorris.github.io/discwordle",
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.4.4",
