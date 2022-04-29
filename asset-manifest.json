@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/discwordle/static/css/main.8d54c2d8.css",
+    "main.js": "/discwordle/static/js/main.4630580a.js",
+    "static/js/787.9c426d57.chunk.js": "/discwordle/static/js/787.9c426d57.chunk.js",
+    "static/media/discworld-banner.jpeg": "/discwordle/static/media/discworld-banner.e30dbb9a76b2a72eadef.jpeg",
+    "static/media/android-chrome-512x512.png": "/discwordle/static/media/android-chrome-512x512.daa81badfa7ba4a28d1c.png",
+    "index.html": "/discwordle/index.html",
+    "main.8d54c2d8.css.map": "/discwordle/static/css/main.8d54c2d8.css.map",
+    "main.4630580a.js.map": "/discwordle/static/js/main.4630580a.js.map",
+    "787.9c426d57.chunk.js.map": "/discwordle/static/js/787.9c426d57.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d54c2d8.css",
+    "static/js/main.4630580a.js"
+  ]
+}
