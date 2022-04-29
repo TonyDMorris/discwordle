@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-export default function Input({ handleAnswer }) {
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+export default function Input({ handleAnswer, books }) {
   const [input, setInput] = useState("");
   const inputFunc = (e) => {
-    e.preventDefault();
-    setInput(e.target.value);
+    console.log(e);
+    setInput(e.target.innerText);
   };
   return (
     <Wrapper>
       <ButtonSuggestion for="bookTitle">guess the book</ButtonSuggestion>
       <InputBox
+        autoComplete={true}
+        autoHighlight={true}
+        autoSelect={true}
+        disablePortal
+        id="select-book"
+        options={books}
+        renderInput={(params) => <TextField {...params} label="Book" />}
         onChange={inputFunc}
+        onInputChange={inputFunc}
         type={"text"}
         name={"bookTitle"}
         placeholder={"Book Title"}
-        value={input}
       ></InputBox>
+
       <ButtonWrapper>
         <Button
           onClick={(e) => {
@@ -29,8 +39,8 @@ export default function Input({ handleAnswer }) {
         <Button
           onClick={(e) => {
             e.preventDefault();
-            setInput("");
             handleAnswer(input || "Skip");
+            setInput("");
           }}
         >
           Guess
@@ -48,18 +58,17 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
-const InputBox = styled.input`
-  width: 70%;
+const InputBox = styled(Autocomplete)`
+  width: 75%;
 
   @media (min-width: 440px) {
     margin-right: 15vw;
     margin-left: 15vw;
   }
 
-  border: 1px solid rgba(16, 23, 42, 0.9);
   align-self: center;
   background-color: whitesmoke;
-  padding: 10px;
+
   font-size: 16px;
   border-radius: 10px;
   :focus {
@@ -107,4 +116,9 @@ const ButtonSuggestion = styled.label`
     font-size: 20px;
     font-family: arial;
   }
+`;
+
+const Suggestion = styled.div`
+  border: 1px solid silver;
+  width: 150px;
 `;

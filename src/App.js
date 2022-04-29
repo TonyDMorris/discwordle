@@ -58,7 +58,9 @@ function App() {
             Remaining tries: {remainingTries}
           </h4>
         )}
-        {!gameOver() && <Input handleAnswer={handleAnswer} />}
+        {!gameOver() && (
+          <Input books={gameData.books} handleAnswer={handleAnswer} />
+        )}
         {gameOver() && (
           <Result
             hasLost={stats.hasLost}

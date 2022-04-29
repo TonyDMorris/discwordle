@@ -5,8 +5,8 @@ export default function Guesses({ guesses }) {
     <Wrapper>
       {guesses.map((guess, i) => {
         return (
-          <Guess>
-            <p key={i}>{guess.slice(0, 25)}</p>
+          <Guess key={i}>
+            <p>{guess.slice(0, 25)}</p>
           </Guess>
         );
       })}
