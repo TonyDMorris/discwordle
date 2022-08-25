@@ -46,7 +46,7 @@ function App() {
   return (
     <Wrap>
       <Wrapper>
-        <Header />
+        {!gameOver() && <Header />}
         {!gameOver() && (
           <QuoteCarosel quotes={quotes} index={stats.currentGuesses} />
         )}
@@ -67,10 +67,11 @@ function App() {
             hasWon={stats.hasWon}
             book={currentGame}
             imgRef={gameData.images[currentGame]}
+            amazon_affiliate_html={gameData.amazon_affiliate_html[currentGame]}
             guesses={stats.guesses}
           />
         )}
-        <Guesses guesses={stats.guesses}></Guesses>
+        {!gameOver() && <Guesses guesses={stats.guesses}></Guesses>}
       </Wrapper>
     </Wrap>
   );

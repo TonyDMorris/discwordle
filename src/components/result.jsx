@@ -1,21 +1,41 @@
 import React from "react";
 import styled from "styled-components";
-export default function Result({ imgRef, hasLost, hasWon, book, guesses }) {
+export default function Result({
+  imgRef,
+  hasLost,
+  hasWon,
+  book,
+  amazon_affiliate_html,
+  guesses,
+}) {
   return (
     <Wrapper>
-      <p>
-        {hasWon && "You Won !"}
-        {hasLost && "You Lost !"}
-        <br />
-        it was {book}!
-      </p>
-      <ShareButton
-        onClick={() => {
-          navigator.clipboard.writeText(convertGuessesToShare(guesses, book));
-        }}
-      >
-        Share
-      </ShareButton>
+      <TopBox>
+        <div>
+          <p>
+            {hasWon && "You Won !"}
+            {hasLost && "You Lost !"}
+            <br />
+            it was {book}!
+          </p>
+          <ShareButton
+            onClick={() => {
+              navigator.clipboard.writeText(
+                convertGuessesToShare(guesses, book)
+              );
+            }}
+          >
+            Share
+          </ShareButton>
+        </div>
+
+        <Shop
+          dangerouslySetInnerHTML={{
+            __html: unescapeHtml(amazon_affiliate_html),
+          }}
+        />
+      </TopBox>
+
       <Img src={imgRef} />
     </Wrapper>
   );
@@ -39,7 +59,10 @@ const Img = styled.img`
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
-
+const Shop = styled.div`
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+`;
 const ShareButton = styled.button`
   background-color: #4caf50;
   border: none;
@@ -54,6 +77,10 @@ const ShareButton = styled.button`
   :active {
     background-color: white;
   }
+`;
+const TopBox = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const convertGuessesToShare = (gs, book) => {
@@ -70,3 +97,12 @@ const convertGuessesToShare = (gs, book) => {
   const share = "www.discwordle.com \n" + guesses.join("");
   return share;
 };
+
+function unescapeHtml(unsafe) {
+  return unsafe
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'");
+}
