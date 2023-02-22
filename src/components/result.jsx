@@ -28,12 +28,6 @@ export default function Result({
             Share
           </ShareButton>
         </div>
-
-        <Shop
-          dangerouslySetInnerHTML={{
-            __html: unescapeHtml(amazon_affiliate_html),
-          }}
-        />
       </TopBox>
 
       <Img src={imgRef} />
