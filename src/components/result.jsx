@@ -5,7 +5,6 @@ export default function Result({
   hasLost,
   hasWon,
   book,
-  amazon_affiliate_html,
   guesses,
 }) {
   return (
@@ -53,10 +52,7 @@ const Img = styled.img`
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
-const Shop = styled.div`
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-`;
+
 const ShareButton = styled.button`
   background-color: #4caf50;
   border: none;
