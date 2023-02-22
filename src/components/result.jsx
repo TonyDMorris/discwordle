@@ -88,11 +88,4 @@ const convertGuessesToShare = (gs, book) => {
   return share;
 };
 
-function unescapeHtml(unsafe) {
-  return unsafe
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
-}
+
